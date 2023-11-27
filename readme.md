@@ -58,16 +58,17 @@ end
 
 **Blue Text Example**
 > Chalk has a very simple but powerful API 
+
 ```lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local Chalk = require(ReplicatedStorage:WaitForChild("Chalk"));
 
 local TextBox = script.Parent;
 
-TextBox.Text = chalk.blue('Hello world!')
+TextBox.Text = Chalk.blue('Hello world!')
 ```
 <h1 align="left">
-	<img width="500" src="media/Example1.gif" alt="Chalk">
+	<img width="500" src="media/Example1.png" alt="Chalk">
 </h1>
 
 **Multi String Example**
@@ -92,13 +93,12 @@ Update(("CPU: %s \nRAM: %s \nDISK: %s"):format(Chalk.red("90%"), Chalk.green("40
 Update(Chalk.color(123, 45, 67).underline("Underlined reddish color"))
 Update(Chalk.color("#DEADED").bold("Bold gray!"))
 ```
-
 <h1 align="left">
 	<img width="500" src="media/Example2.gif" alt="Chalk">
 </h1>
 
-
-Easily define your own themes:
+**Theme Creation**
+> Easily define your own themes
 
 ```lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
@@ -114,6 +114,10 @@ local function Update(String) TextBox.Text = String; task.wait(1); end
 Update(error("Error!")) 
 Update(warning("Warning!"));
 ```
+<h1 align="left">
+	<img width="500" src="media/Example3.gif" alt="Chalk">
+</h1>
+
 
 Take advantage of string substitution:
 
@@ -128,6 +132,9 @@ local function Update(String) TextBox.Text = String; task.wait(1); end
 local Name = "Builderman";
 Update(Chalk.green(("Hello %s"):format(Name)))
 ```
+<h1 align="left">
+	<img width="500" src="media/Example4.png" alt="Chalk">
+</h1>
 
 ## API
 
