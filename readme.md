@@ -120,16 +120,30 @@ TextBox.Text = Chalk.green(("Hello %s"):format(Name))
 
 ## API
 
-### chalk.`<style>[.<style>...](string, [string...])`
+### Chalk Syntax and Typing
 
-Example: `chalk.red.bold.underline('Hello', 'world');`
+**Example:**
+```lua
+    chalk.[`...: ArgumentStyle`] -> (...) -> chalk
+    chalk.[`...: ModifierStyle`] -> chalk
 
-Chain [styles](#styles) calls the last modifier as a method with a string argument. Order doesn't matter, and earlier modifiers take priority in case of a conflict.<br /> 
+    chalk.[`...: ArgumentStyle`] -> (...) -> chalk.[`...: ArgumentStyle`] -> (...) -> chalk
+    chalk.[`...: ArgumentStyle`] -> (...) -> chalk[`...: ModifierStyle`] -> chalk
+
+    chalk.[`...: ModifierStyle`] -> chalk[`...: ModifierStyle`] -> chalk
+    chalk.[`...: ModifierStyle`] -> chalk[`...: ArgumentStyle`] -> (...) -> chalk
+
+    chalk.[`...: Style`](`...: string`) -> string
+    chalk.red.bold.underline('Hello', 'world');
+```
+
+Chain [styles](#styles) calls the last Style as a method with a string argument.<br />
+Order doesn't matter, and earlier Styles take priority in case of a conflict.<br /> 
 This simply means that `chalk.red.yellow.green` is equivalent to `chalk.red`.
 
 ## Styles
 
-### Modifiers
+### Modifier Styles
 - `Chalk.bold` - Make the text bold
 - `Chalk.italic` - Make the text italic
 - `Chalk.underline` - Underline the text
@@ -137,13 +151,13 @@ This simply means that `chalk.red.yellow.green` is equivalent to `chalk.red`.
 - `Chalk.uppercase` - Convert text to uppercase
 - `Chalk.smallcaps` - Convert text to small capitals
 
+### Argument Modifier Style
 - `Chalk.color(Hex) | Chalk.color(R, G, B) | Chalk.color(Color3.new())` - Set the color
 - `Chalk.size([<Size>])` - Set the size of the text (Number)
 - `Chalk.face([<Face>])` - Set the typeface of the text (String)
 - `Chalk.family([<rbxasset://>])` - Set the font family from an asset (String)
 - `Chalk.weight([<Weight>])` - Set the font weight (String)
 - `Chalk.transparency([<Transparency>])` - Set the transparency of the text (Number 0-1)
-
 - `Chalk.stroke({Color = [<Color>], Joins = [<Joins>], Thickness = [<Thickness>], Transparency = [<Transparency>]})` - Define stroke properties: color (Color3), joins (String), thickness (Number), and transparency (Number)
 
 ```lua
