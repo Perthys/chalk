@@ -91,7 +91,7 @@ local ChalkObject = {}; ChalkObject.__index = ChalkObject;
 
 local function GenerateCustomHandlerFunction(Type)
 	return function(Argument)
-		local FormatStart = Formats[Type].Start:format(Argument);
+		local FormatStart = string.format(Formats[Type].Start, Argument);
 
 		return function(String)
 			return `{FormatStart}{String}{Formats[Type].End}`
@@ -112,7 +112,7 @@ local function GenerateColorFunction(Color)
 		local G = math.floor(Color.g * 255);
 		local B = math.floor(Color.b * 255);
 
-		local FormatStart = Formats.FONT_COLOR_RGB.Start:format(R, G, B);
+		local FormatStart = string.format(Formats.FONT_COLOR_RGB.Start, R, G, B);
 
 		return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
 	end
