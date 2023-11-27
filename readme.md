@@ -114,7 +114,7 @@ local Chalk = require(ReplicatedStorage:WaitForChild("Chalk"));
 
 local TextBox = script.Parent;
 
-local Name = "Sindre";
+local Name = "Builderman";
 TextBox.Text = Chalk.green(("Hello %s"):format(Name))
 ```
 
@@ -175,7 +175,7 @@ The following color models can be used:
 - [`rgb`](https://en.wikipedia.org/wiki/RGB_color_model) - Example: `chalk.color(255, 136, 0).bold('Orange!')`
 - [`hex`](https://en.wikipedia.org/wiki/Web_colors#Hex_triplet) - Example: `chalk.color('#FF8800').bold('Orange!')`
 - [`Color3`](https://create.roblox.com/docs/reference/engine/datatypes/Color3) - Example: `chalk.color(Color3.fromRGB(255, 136, 0)).bold("Orange")`
-- ["BrickColor](https://create.roblox.com/docs/reference/engine/datatypes/BrickColor) - Example `chalk["Earth orange"]`
+- [`BrickColor`](https://create.roblox.com/docs/reference/engine/datatypes/BrickColor) - Example `chalk["Earth orange"]`
 
 
 ## Origin story
