@@ -8,8 +8,8 @@
 </h1>
 
 <h1 align="center">
+    Rich Text styling done right
 	<br>
-    #Rich Text styling done right
 	<img width="578" src="media/screenshot.png" alt="Chalk">
 	<br>
 </h1>
