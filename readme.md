@@ -190,7 +190,7 @@ The following color models can be used:
 
 
 ## Origin story
-I wanted to make the [`npm package`](https://www.npmjs.com/package/chalk) [`chalk`](https://github.com/chalk/chalk) for roblox luau [`richtext`](https://create.roblox.com/docs/ui/rich-text) because I really did not want to do styling manually.
+I wanted to make the [`npm package`](https://www.npmjs.com/package/chalk) [`chalk`](https://github.com/chalk/chalk) for roblox luau [`richtext`](https://create.roblox.com/docs/ui/rich-text) because I *really* did not want to do styling manually.
 
 ## Comments
 - ROBLOX PLEASE ENABLE RICH TEXT TO CONSOLE TEXT OBJECTS, you can make a interface with LogService so print/warn/error can still output raw text.
