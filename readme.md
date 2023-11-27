@@ -124,7 +124,8 @@ TextBox.Text = Chalk.green(("Hello %s"):format(Name))
 
 Example: `chalk.red.bold.underline('Hello', 'world');`
 
-Chain [styles](#styles) call the last one as a method with a string argument. Order doesn't matter, and earlier styles take precedent in case of a conflict. This simply means that `chalk.red.yellow.green` is equivalent to `chalk.red`.
+Chain [styles](#styles) calls the last modifier as a method with a string argument. Order doesn't matter, and earlier modifiers take priority in case of a conflict.<br /> 
+This simply means that `chalk.red.yellow.green` is equivalent to `chalk.red`.
 
 ## Styles
 
