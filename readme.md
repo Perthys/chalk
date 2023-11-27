@@ -9,7 +9,7 @@
 
 <h1 align="center">
     Rich Text styling done right
-    
+    <br>
 	<br>
 	<img width="578" src="media/screenshot.png" alt="Chalk">
 	<br>
