@@ -88,6 +88,11 @@ Update(Chalk.color(123, 45, 67).underline("Underlined reddish color"))
 Update(Chalk.color("#DEADED").bold("Bold gray!"))
 ```
 
+<h1 align="center">
+	<img width="578" src="media/Example1.gif" alt="Chalk">
+</h1>
+
+
 Easily define your own themes:
 
 ```lua
