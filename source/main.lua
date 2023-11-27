@@ -273,6 +273,8 @@ local Chalk = setmetatable({}, {
 	end
 }); 
 
+return Chalk :: ChalkType;
+
 -- API List 
 
 -- Chalk.[<BrickColorName>]
@@ -302,8 +304,5 @@ local Chalk = setmetatable({}, {
 -- Chalk.blue - Set the color to blue
 -- Chalk.purple - Set the color to purple
 -- Chalk.pink - Set the color to pink
-
-return Chalk :: ChalkType;
-
 
 

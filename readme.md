@@ -35,7 +35,7 @@
 - Auto-detects color support
 - Clean and focused
 - Actively maintained
-- Extremely Lightweight (less than 250 lines)
+- Extremely Lightweight (less than ~270 lines)
 
 ## Install
 
