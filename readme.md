@@ -67,7 +67,7 @@ local Chalk = require(ReplicatedStorage:WaitForChild("Chalk"));
 
 local TextBox = script.Parent;
 
-TextBox.Text = Chalk.blue("Hello") .. 'World' .. chalk.red("!")
+TextBox.Text = Chalk.blue("Hello") .. 'World' .. Chalk.red("!")
 TextBox.Text = Chalk.blue.bold("Hello world!")
 TextBox.Text = Chalk.blue("Hello", "World!", "Foo", "bar", "biz", "baz")
 TextBox.Text = Chalk.red("Hello", Chalk.underline("world") .. "!")
