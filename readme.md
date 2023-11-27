@@ -159,23 +159,27 @@ Chain [styles](#styles) and call the last one as a method with a string argument
 - `Chalk.purple` - Set the color to purple
 - `Chalk.pink` - Set the color to pink
   
-## 256 and Truecolor color support
+## Color3, 256 RGB, Hex and BrickColor support
 
-Chalk supports Color3 and hex colors.
+Chalk supports Color3, 256 RGB, Hex and BrickColor.
 
 Examples:
 
 - `chalk.color('#DEADED').underline('Hello, world!')`
 - `chalk.color(15, 100, 204)`
+- `chalk.color(Color3.fromRGB(100, 255, 255))`
+- `chalk.nougat`
 
 The following color models can be used:
 
 - [`rgb`](https://en.wikipedia.org/wiki/RGB_color_model) - Example: `chalk.color(255, 136, 0).bold('Orange!')`
 - [`hex`](https://en.wikipedia.org/wiki/Web_colors#Hex_triplet) - Example: `chalk.color('#FF8800').bold('Orange!')`
+- [`Color3`](https://create.roblox.com/docs/reference/engine/datatypes/Color3) - Example: `chalk.color(Color3.fromRGB(255, 136, 0)).bold("Orange")`
+- ["BrickColor](https://create.roblox.com/docs/reference/engine/datatypes/BrickColor) - Example `chalk["Earth orange"]`
+
 
 ## Origin story
-Literally made [`the npm package`](https://www.npmjs.com/package/chalk) but for roblox luau [`richtext`](https://create.roblox.com/docs/ui/rich-text)
-Cause I really did not want to do styling manually.
+I wanted to make the [`npm package`](https://www.npmjs.com/package/chalk) [`chalk`](https://github.com/chalk/chalk) for roblox luau [`richtext`](https://create.roblox.com/docs/ui/rich-text) because I really did not want to do styling manually.
 
 ## Side Note
 ROBLOX PLEASE ADD CONSOLE STYLING I KNOW ITS POSSIBLE JUST ENABLE RICH TEXT
