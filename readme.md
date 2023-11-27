@@ -56,6 +56,7 @@ end
 
 ## Usage
 
+**Blue Text Example**
 ```lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local Chalk = require(ReplicatedStorage:WaitForChild("Chalk"));
@@ -67,6 +68,8 @@ TextBox.Text = chalk.blue('Hello world!')
 ```
 
 Chalk comes with an easy to use composable API where you just chain and nest the styles you want.
+
+**Multi String Example**
 
 ```lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
@@ -88,7 +91,7 @@ Update(Chalk.color(123, 45, 67).underline("Underlined reddish color"))
 Update(Chalk.color("#DEADED").bold("Bold gray!"))
 ```
 
-<h1 align="center">
+<h1 align="left">
 	<img width="578" src="media/Example1.gif" alt="Chalk">
 </h1>
 
