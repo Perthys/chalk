@@ -124,22 +124,22 @@ TextBox.Text = Chalk.green(("Hello %s"):format(Name))
 
 **Example:**
 ```lua
-chalk.[...: ArgumentStyle] -> (...) -> chalk(`...: string`)
+chalk[ ArgumentStyle ] -> (...: StyleArgs) -> chalk(...: string)
 chalk.size(40)("test");
 
-chalk.[...: ModifierStyle] -> chalk(`...: string`)
+chalk[ ModifierStyle ] -> chalk(...: string)
 chalk.bold("test");
 
-chalk.[...: ArgumentStyle] -> (...) -> chalk.[...: ArgumentStyle] -> (...) -> chalk(`...: string`)
+chalk[ ArgumentStyle ] -> (...: StyleArgs) -> chalk[ ArgumentStyle ] -> (...) -> chalk(...: string)
 chalk.size(40).color(40,20,30)("test");
 
-chalk.[...: ArgumentStyle] -> (...) -> chalk[...: ModifierStyle] -> chalk(`...: string`)
+chalk[ ArgumentStyle ] -> (...: StyleArgs) -> chalk[ ModifierStyle ] -> chalk(...: string)
 chalk.size(40).bold("test");
 
-chalk.[...: ModifierStyle] -> chalk[...: ModifierStyle] -> chalk(`...: string`)
+chalk[ ModifierStyle ] -> chalk[ ModifierStyle ] -> chalk(...: string)
 chalk.red.bold("test");
 
-chalk.[...: ModifierStyle] -> chalk[...: ArgumentStyle] -> (...) -> chalk(`...: string`)
+chalk[ ModifierStyle ] -> chalk[ ArgumentStyle ] -> (...: StyleArgs) -> chalk(...: string)
 chalk.red.size(40)("test");
 ```
 
