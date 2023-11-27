@@ -9,7 +9,15 @@
 
 > Rich Text styling done right
 
-![](media/screenshot.png)
+<h1 align="center">
+	<br>
+	<br>
+	<img width="578" src="media/screenshot.png" alt="Chalk">
+	<br>
+	<br>
+	<br>
+</h1>
+
 
 ## Highlights
 
