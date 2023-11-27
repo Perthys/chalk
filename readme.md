@@ -7,14 +7,10 @@
 	<br>
 </h1>
 
-> Rich Text styling done right
-
 <h1 align="center">
 	<br>
-	<br>
+    #Rich Text styling done right
 	<img width="578" src="media/screenshot.png" alt="Chalk">
-	<br>
-	<br>
 	<br>
 </h1>
 
