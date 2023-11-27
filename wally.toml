@@ -1,7 +1,18 @@
 [package]
 name = "perthys/chalk"
-version = "0.1.0"
+version = "1.0.1.1"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
+description = "Rich Text string styling done right | https://github.com/Perthys/chalk "
+license = "MIT"
+authors = ["Perthys <perth@perthys.cc>"]
+exclude = [
+    'ExampleGame.rbxl', 
+    'media', 
+    '.gitignore',
+    'aftman.toml',
+    'README.md',
+    'code-of-conduct.md',
+]
 
 [dependencies]
