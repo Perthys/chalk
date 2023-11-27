@@ -17,7 +17,6 @@
 </h1>
 
 ## Guide
-
 >[Highlights](#Highlights) <br>
 >[Install](#Install) <br>
 >[Usage](#Usage) <br>
@@ -27,7 +26,6 @@
 >[Maintainers](#Maintainers) <br>
 
 ## Highlights
-
 - Expressive API
 - Highly performant
 - No dependencies
@@ -36,6 +34,7 @@
 - Clean and focused
 - Actively maintained
 - Extremely Lightweight (less than ~270 lines)
+- Proper Typing for AutoFill
 
 ## Install
 
@@ -231,10 +230,10 @@ Chalk supports Color3, 256 RGB, Hex and BrickColor.
 
 Examples:
 
-- `chalk.color('#DEADED').underline('Hello, world!')`
-- `chalk.color(15, 100, 204)`
-- `chalk.color(Color3.fromRGB(100, 255, 255))`
-- `chalk.nougat`
+- `Chalk.color('#DEADED').underline('Hello, world!')`
+- `Chalk.color(15, 100, 204)`
+- `Chalk.color(Color3.fromRGB(100, 255, 255))`
+- `Chalk.nougat`
 
 The following color models can be used:
 
