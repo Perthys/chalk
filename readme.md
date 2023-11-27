@@ -16,6 +16,14 @@
     <br>
 </h1>
 
+## Guide
+>[Highlights](#Highlights)
+>[Install](#Install)
+>[API](#API)
+>[Styles](#Styles)
+>[Comments](#Comments)
+>[Maintainers](#Maintainers)
+
 ## Highlights
 
 - Expressive API
@@ -192,6 +200,9 @@ Chalk.stroke({
     Transparency = [<Transparency>]
 })
 ``` 
+
+### Example Game
+["ExampleGame"][]
 
 
 ### Colors

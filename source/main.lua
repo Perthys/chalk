@@ -303,8 +303,6 @@ local Chalk = setmetatable({}, {
 -- Chalk.purple - Set the color to purple
 -- Chalk.pink - Set the color to pink
 
-
-
 return Chalk :: ChalkType;
 
 
