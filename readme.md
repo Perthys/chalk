@@ -124,17 +124,23 @@ TextBox.Text = Chalk.green(("Hello %s"):format(Name))
 
 **Example:**
 ```lua
-    chalk.[`...: ArgumentStyle`] -> (...) -> chalk
-    chalk.[`...: ModifierStyle`] -> chalk
+chalk.[`...: ArgumentStyle`] -> (...) -> chalk(`...: string`)
+chalk.size(40)("test");
 
-    chalk.[`...: ArgumentStyle`] -> (...) -> chalk.[`...: ArgumentStyle`] -> (...) -> chalk
-    chalk.[`...: ArgumentStyle`] -> (...) -> chalk[`...: ModifierStyle`] -> chalk
+chalk.[`...: ModifierStyle`] -> chalk(`...: string`)
+chalk.bold("test");
 
-    chalk.[`...: ModifierStyle`] -> chalk[`...: ModifierStyle`] -> chalk
-    chalk.[`...: ModifierStyle`] -> chalk[`...: ArgumentStyle`] -> (...) -> chalk
+chalk.[`...: ArgumentStyle`] -> (...) -> chalk.[`...: ArgumentStyle`] -> (...) -> chalk(`...: string`)
+chalk.size(40).color(40,20,30)("test");
 
-    chalk.[`...: Style`](`...: string`) -> string
-    chalk.red.bold.underline('Hello', 'world');
+chalk.[`...: ArgumentStyle`] -> (...) -> chalk[`...: ModifierStyle`] -> chalk(`...: string`)
+chalk.size(40).bold("test");
+
+chalk.[`...: ModifierStyle`] -> chalk[`...: ModifierStyle`] -> chalk(`...: string`)
+chalk.red.bold("test");
+
+chalk.[`...: ModifierStyle`] -> chalk[`...: ArgumentStyle`] -> (...) -> chalk(`...: string`)
+chalk.red.size(40)("test");
 ```
 
 Chain [styles](#styles) calls the last Style as a method with a string argument.<br />
