@@ -38,6 +38,7 @@
 
 ## Install
 
+**Roblox Console**
 ```lua
 -- Run in Roblox Studio Console
 local HttpService = game:GetService("HttpService"); 
@@ -64,6 +65,12 @@ if Request.Success and Request.StatusCode == 200 then
 else
     error("Failed to install Chalk module.");
 end
+```
+
+**Wally**
+```toml
+[dependencies]
+chalk = "perthys/chalk@1.0.3"
 ```
 
 ## Usage
