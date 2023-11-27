@@ -20,6 +20,7 @@
 
 >[Highlights](#Highlights) <br>
 >[Install](#Install) <br>
+>[Usage](#Usage) <br>
 >[API](#API) <br>
 >[Styles](#Styles) <br>
 >[Comments](#Comments) <br>
