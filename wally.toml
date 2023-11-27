@@ -1,6 +1,6 @@
 [package]
 name = "perthys/chalk"
-version = "1.0.2"
+version = "1.0.3"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 description = "Rich Text string styling done right | https://github.com/Perthys/chalk "
@@ -13,6 +13,7 @@ exclude = [
     'aftman.toml',
     'README.md',
     'code-of-conduct.md',
+    'contributing.md',
 ]
 
 [dependencies]
