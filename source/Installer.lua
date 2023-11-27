@@ -1,7 +1,7 @@
 -- Run in Roblox Studio Console
 local HttpService = game:GetService("HttpService"); 
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
-local LastValue = HttpService.LastValue
+local LastValue = HttpService.HttpEnabled
 
 HttpService.HttpEnabled = true
 
