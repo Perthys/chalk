@@ -9,6 +9,8 @@
 
 > Rich Text styling done right
 
+![](media/screenshot.png)
+
 ## Highlights
 
 - Expressive API
@@ -65,30 +67,20 @@ Chalk comes with an easy to use composable API where you just chain and nest the
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local Chalk = require(ReplicatedStorage:WaitForChild("Chalk"));
 
-local TextBox = script.Parent;
+local TextBox = script.Parent; TextBox.RichText = true;
 
-TextBox.Text = Chalk.blue("Hello") .. 'World' .. Chalk.red("!")
-TextBox.Text = Chalk.blue.bold("Hello world!")
-TextBox.Text = Chalk.blue("Hello", "World!", "Foo", "bar", "biz", "baz")
-TextBox.Text = Chalk.red("Hello", Chalk.underline("world") .. "!")
-TextBox.Text = Chalk.green(
-    "I am a green line " ..
-    Chalk.blue.underline.bold("with a blue substring") ..
-    " that becomes green again!"
-)
+local function Update(String) TextBox.Text = String; task.wait(1); end
 
-TextBox.Text = ([[
-CPU: %s
-RAM: %s
-DISK: %s
-]]):format(
-    Chalk.red("90%"),
-    Chalk.green("40%"),
-    Chalk.yellow("70%")
-)
+Update(Chalk.blue("Hello") .. 'World' .. Chalk.red("!"))
+Update(Chalk.blue.bold("Hello world!"))
+Update(Chalk.blue("Hello", "World!", "Foo", "bar", "biz", "baz"))
+Update(Chalk.red("Hello", Chalk.underline("world") .. "!"))
+Update(Chalk.green("I am a green line " .. Chalk.blue.underline.bold("with a blue substring") .. " that becomes green again!"))
 
-TextBox.Text = Chalk.color(123, 45, 67).underline("Underlined reddish color")
-TextBox.Text = Chalk.color("#DEADED").bold("Bold gray!")
+Update(("CPU: %s \nRAM: %s \nDISK: %s"):format(Chalk.red("90%"), Chalk.green("40%"), Chalk.yellow("70%")))
+
+Update(Chalk.color(123, 45, 67).underline("Underlined reddish color"))
+Update(Chalk.color("#DEADED").bold("Bold gray!"))
 ```
 
 Easily define your own themes:
@@ -97,13 +89,15 @@ Easily define your own themes:
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local Chalk = require(ReplicatedStorage:WaitForChild("Chalk"));
 
-local TextBox = script.Parent;
+local TextBox = script.Parent; TextBox.RichText = true;
 
 local error = Chalk.bold.red;
 local warning = Chalk.color("#FFA500");
 
-TextBox.Text = error("Error!") 
-TextBox.Text = warning("Warning!");
+local function Update(String) TextBox.Text = String; task.wait(1); end
+
+Update(error("Error!")) 
+Update(warning("Warning!"));
 ```
 
 Take advantage of string substitution:
@@ -112,10 +106,12 @@ Take advantage of string substitution:
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local Chalk = require(ReplicatedStorage:WaitForChild("Chalk"));
 
-local TextBox = script.Parent;
+local TextBox = script.Parent; TextBox.RichText = true;
+
+local function Update(String) TextBox.Text = String; task.wait(1); end
 
 local Name = "Builderman";
-TextBox.Text = Chalk.green(("Hello %s"):format(Name))
+Update(Chalk.green(("Hello %s"):format(Name)))
 ```
 
 ## API
