@@ -23,7 +23,6 @@
 ## Install
 
 ```lua
-
 -- Run in Roblox Studio Console
 local HttpService = game:GetService("HttpService"); 
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
@@ -116,7 +115,7 @@ local Chalk = require(ReplicatedStorage:WaitForChild("Chalk"));
 local TextBox = script.Parent;
 
 local Name = "Sindre";
-TextBox.Text = Chalk.green(("%s"):format(Name))
+TextBox.Text = Chalk.green(("Hello %s"):format(Name))
 ```
 
 ## API
@@ -130,8 +129,6 @@ Chain [styles](#styles) and call the last one as a method with a string argument
 ## Styles
 
 ### Modifiers
-
-- `Chalk.[<BrickColorName>]` - Index a BrickColor
 - `Chalk.bold` - Make the text bold
 - `Chalk.italic` - Make the text italic
 - `Chalk.underline` - Underline the text
@@ -146,10 +143,10 @@ Chain [styles](#styles) and call the last one as a method with a string argument
 - `Chalk.weight([<Weight>])` - Set the font weight (String)
 - `Chalk.transparency([<Transparency>])` - Set the transparency of the text (Number 0-1)
 - `Chalk.stroke({Color = [<Color>], Joins = [<Joins>], Thickness = [<Thickness>], Transparency = [<Transparency>]})` - Define stroke properties: color (Color3), joins (String), thickness (Number), and transparency (Number)
-- 
+
 ### Colors
 
-- `All BrickColor` [`Colors`](https://create.roblox.com/docs/reference/engine/datatypes/BrickColor#r)
+- `Chalk[<BrickColorName>]` - Set the color to a BrickColor [`Colors`](https://create.roblox.com/docs/reference/engine/datatypes/BrickColor#r)
 - `Chalk.white` - Set the color to white
 - `Chalk.black` - Set the color to black
 - `Chalk.red` - Set the color to red
