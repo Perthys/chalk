@@ -16,14 +16,12 @@
     <br>
 </h1>
 
-<p style="text-align: center;">
 >[Highlights](#Highlights) 
 >[Install](#Install) 
 >[API](#API) 
 >[Styles](#Styles) 
 >[Comments](#Comments) 
 >[Maintainers](#Maintainers) 
-</p>
 
 ## Highlights
 
