@@ -16,13 +16,14 @@
     <br>
 </h1>
 
-## Guide
->[Highlights](#Highlights)
->[Install](#Install)
->[API](#API)
->[Styles](#Styles)
->[Comments](#Comments)
->[Maintainers](#Maintainers)
+<h1 align="center">
+>[Highlights](#Highlights) 
+>[Install](#Install) 
+>[API](#API) 
+>[Styles](#Styles) 
+>[Comments](#Comments) 
+>[Maintainers](#Maintainers) 
+</h1>
 
 ## Highlights
 
@@ -202,7 +203,7 @@ Chalk.stroke({
 ``` 
 
 ### Example Game
-["ExampleGame"][]
+[`ExampleGame`](https://github.com/Perthys/chalk/raw/main/ExampleGame.rbxl)
 
 
 ### Colors
