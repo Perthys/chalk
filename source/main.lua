@@ -91,7 +91,7 @@ local ChalkObject = {}; ChalkObject.__index = ChalkObject;
 
 local function GenerateCustomHandlerFunction(Type)
 	return function(Argument)
-		local FormatStart = Formats[Type].Start:format(Argument);
+		local FormatStart = string.format(Formats[Type].Start, Argument);
 
 		return function(String)
 			return `{FormatStart}{String}{Formats[Type].End}`
@@ -112,7 +112,7 @@ local function GenerateColorFunction(Color)
 		local G = math.floor(Color.g * 255);
 		local B = math.floor(Color.b * 255);
 
-		local FormatStart = Formats.FONT_COLOR_RGB.Start:format(R, G, B);
+		local FormatStart = string.format(Formats.FONT_COLOR_RGB.Start, R, G, B);
 
 		return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
 	end
@@ -121,9 +121,9 @@ end
 local function ValidateHex(String)
 	if typeof(String) ~= "string" then return end
 
-	String = String:gsub("#", "")
+	String = string.gsub(String, "#", "")
 
-	return string.match(String, `^%x%x%x%x%x%x$`) 
+	return string.match(String, `^%x%x%x%x%x%x$`)
 end
 
 local CustomHandler = {
@@ -138,7 +138,7 @@ local CustomHandler = {
 		local Thickness = Data.Thickness or 1;
 		local transparency = Data.Transparency or 0;
 
-		local FormatStart = Formats.STROKE.Start:format(Color, Joins, Thickness, transparency);
+		local FormatStart = string.format(Formats.STROKE.Start, Color, Joins, Thickness, transparency);
 
 		return function(String)
 			return `{FormatStart}{String}{Formats.STROKE.End}`
@@ -155,8 +155,8 @@ local CustomHandler = {
 			(IsColor3 and FirstArg) or 
 			Color3.fromRGB(FirstArg, Args[2], Args[3]);
 
-		local FormatStart = (IsHex and Formats.FONT_COLOR_HEX.Start:format(FirstArg:gsub("#", ""))) or
-		Formats.FONT_COLOR_RGB.Start:format(math.floor(Color.R * 255), math.floor(Color.G * 255), math.floor(Color.B * 255));
+		local FormatStart = (IsHex and string.format(Formats.FONT_COLOR_HEX.Start, string.gsub(FirstArg, "#", ""))) or
+		string.format(Formats.FONT_COLOR_RGB.Start, math.floor(Color.R * 255), math.floor(Color.G * 255), math.floor(Color.B * 255));
 
 		return function(String)
 			return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
@@ -181,12 +181,12 @@ for Index = 1, BrickColorCount do
 		local G = math.floor(BrickColor.g * 255);
 		local B = math.floor(BrickColor.b * 255);
 
-		local FormatStart = Formats.FONT_COLOR_RGB.Start:format(R, G, B);
+		local FormatStart = string.format(Formats.FONT_COLOR_RGB.Start, R, G, B);
 
 		return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
 	end
 
-	ChalkData[BrickColor.Name:lower()] = Function
+	ChalkData[string.lower(BrickColor.Name)] = Function
 	ChalkData[BrickColor.Name] = Function
 	ChalkData[BrickColor] = Function
 end
@@ -219,7 +219,7 @@ function ChalkObject.new(FirstObject)
 
 			NextCall = nil;
 
-			return Call(unpack(Arguments));
+			return Call(table.unpack(Arguments));
 		end
 
 		local Results = {};
@@ -232,7 +232,7 @@ function ChalkObject.new(FirstObject)
 			table.insert(Results, String);
 		end
 
-		return unpack(Results);
+		return table.unpack(Results);
 	end
 
 	function Meta:__index(Index)
