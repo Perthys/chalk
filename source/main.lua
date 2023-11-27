@@ -28,8 +28,12 @@ export type ChalkType = {
 };
 
 local Formats = {
-	["FONT_COLOR"] = {
+	["FONT_COLOR_RGB"] = {
 		Start = `<font color="rgb(%s,%s,%s)">`;
+		End = `</font>`;
+	};
+	["FONT_COLOR_HEX"] = {
+		Start = `<font color="#%s">`;
 		End = `</font>`;
 	};
 	["FONT_SIZE"] = {
@@ -108,9 +112,9 @@ local function GenerateColorFunction(Color)
 		local G = math.floor(Color.g * 255);
 		local B = math.floor(Color.b * 255);
 
-		local FormatStart = Formats.FONT_COLOR.Start:format(R, G, B);
+		local FormatStart = Formats.FONT_COLOR_RGB.Start:format(R, G, B);
 
-		return `{FormatStart}{String}{Formats.FONT_COLOR.End}`
+		return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
 	end
 end
 
@@ -152,10 +156,11 @@ local CustomHandler = {
 			(IsHex and Color3.fromHex(FirstArg)) or 
 			Color3.fromRGB(FirstArg, Args[2], Args[3]);
 
-		local FormatStart = Formats.FONT_COLOR.Start:format(Color.R * 255, Color.G * 255, Color.B * 255);
+		local FormatStart = (IsHex and Formats.FONT_COLOR_HEX.Start:format(FirstArg:gsub("#", ""))) or
+		Formats.FONT_COLOR_RGB.Start:format(math.floor(Color.R * 255), math.floor(Color.G * 255), math.floor(Color.B * 255));
 
 		return function(String)
-			return `{FormatStart}{String}{Formats.FONT_COLOR.End}`
+			return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
 		end
 	end;
 }
@@ -177,9 +182,9 @@ for Index = 1, BrickColorCount do
 		local G = math.floor(BrickColor.g * 255);
 		local B = math.floor(BrickColor.b * 255);
 
-		local FormatStart = Formats.FONT_COLOR.Start:format(R, G, B);
+		local FormatStart = Formats.FONT_COLOR_RGB.Start:format(R, G, B);
 
-		return `{FormatStart}{String}{Formats.FONT_COLOR.End}`
+		return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
 	end
 
 	ChalkData[BrickColor.Name:lower()] = Function
