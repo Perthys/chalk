@@ -16,12 +16,14 @@
     <br>
 </h1>
 
->[Highlights](#Highlights) 
->[Install](#Install) 
->[API](#API) 
->[Styles](#Styles) 
->[Comments](#Comments) 
->[Maintainers](#Maintainers) 
+## Guide
+
+>[Highlights](#Highlights) <br>
+>[Install](#Install) <br>
+>[API](#API) <br>
+>[Styles](#Styles) <br>
+>[Comments](#Comments) <br>
+>[Maintainers](#Maintainers) <br>
 
 ## Highlights
 
