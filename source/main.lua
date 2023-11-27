@@ -153,7 +153,6 @@ local CustomHandler = {
 
 		local Color = 
 			(IsColor3 and FirstArg) or 
-			(IsHex and Color3.fromHex(FirstArg)) or 
 			Color3.fromRGB(FirstArg, Args[2], Args[3]);
 
 		local FormatStart = (IsHex and Formats.FONT_COLOR_HEX.Start:format(FirstArg:gsub("#", ""))) or
