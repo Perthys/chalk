@@ -123,7 +123,7 @@ local function ValidateHex(String)
 
 	String = string.gsub(String, "#", "")
 
-	return string.match(String, `^%x%x%x%x%x%x$`) 
+	return string.match(String, `^%x%x%x%x%x%x$`)
 end
 
 local CustomHandler = {
@@ -220,7 +220,7 @@ function ChalkObject.new(FirstObject)
 
 			NextCall = nil;
 
-			return Call(unpack(Arguments));
+			return Call(table.unpack(Arguments));
 		end
 
 		local Results = {};
@@ -233,7 +233,7 @@ function ChalkObject.new(FirstObject)
 			table.insert(Results, String);
 		end
 
-		return unpack(Results);
+		return table.unpack(Results);
 	end
 
 	function Meta:__index(Index)
