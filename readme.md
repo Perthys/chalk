@@ -143,6 +143,8 @@ Chain [styles](#styles) and call the last one as a method with a string argument
 - `Chalk.weight([<Weight>])` - Set the font weight (String)
 - `Chalk.transparency([<Transparency>])` - Set the transparency of the text (Number 0-1)
 
+- `Chalk.stroke({Color = [<Color>], Joins = [<Joins>], Thickness = [<Thickness>], Transparency = [<Transparency>]})` - Define stroke properties: color (Color3), joins (String), thickness (Number), and transparency (Number)
+
 ```lua
 Chalk.stroke({
     Color = [<Color>], 
@@ -151,7 +153,7 @@ Chalk.stroke({
     Transparency = [<Transparency>]
 })
 ``` 
-- Define stroke properties: color (Color3), joins (String), thickness (Number), and transparency (Number)
+
 
 ### Colors
 
