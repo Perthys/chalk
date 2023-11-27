@@ -193,9 +193,9 @@ The following color models can be used:
 I wanted to make the [`npm package`](https://www.npmjs.com/package/chalk) [`chalk`](https://github.com/chalk/chalk) for roblox luau [`richtext`](https://create.roblox.com/docs/ui/rich-text) because I really did not want to do styling manually.
 
 ## Comments
-ROBLOX PLEASE ENABLE RICH TEXT TO CONSOLE TEXT OBJECTS, you can make a interface with LogService so print/warn/error can still output raw text
-If roblox adds support for background text color directly with richtext I will also add support
-If you have any issues or suggestions best way to contact me would be through discord `Perthys#0`
+- ROBLOX PLEASE ENABLE RICH TEXT TO CONSOLE TEXT OBJECTS, you can make a interface with LogService so print/warn/error can still output raw text.
+- If roblox adds support for background text color directly with richtext I will also add support.
+- If you have any issues or suggestions best way to contact me would be through discord `Perthys#0`.
 
 ## Maintainers
 
