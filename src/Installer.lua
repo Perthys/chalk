@@ -5,10 +5,6 @@ local LastValue = HttpService.HttpEnabled
 
 HttpService.HttpEnabled = true
 
-local ChalkModule = Instance.new("ModuleScript");
-ChalkModule.Name = "Chalk";
-ChalkModule.Parent = ReplicatedStorage;
-
 local Request = HttpService:RequestAsync({
     Url = "https://raw.githubusercontent.com/Perthys/chalk/main/source/main.lua";
     Method = "GET";
@@ -17,6 +13,9 @@ local Request = HttpService:RequestAsync({
 HttpService.HttpEnabled = LastValue
 
 if Request.Success and Request.StatusCode == 200 then
+    local ChalkModule = Instance.new("ModuleScript");
+    ChalkModule.Name = "Chalk";
+    ChalkModule.Parent = ReplicatedStorage;
     ChalkModule.Source = Request.Body
 
     print("Successfully installed Chalk module. At:", ChalkModule);
