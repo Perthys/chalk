@@ -6,7 +6,7 @@ local LastValue = HttpService.HttpEnabled
 HttpService.HttpEnabled = true
 
 local Request = HttpService:RequestAsync({
-    Url = "https://raw.githubusercontent.com/Perthys/chalk/main/source/main.lua";
+    Url = "https://raw.githubusercontent.com/Perthys/chalk/main/src/main.lua";
     Method = "GET";
 });
 
