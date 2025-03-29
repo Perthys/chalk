@@ -171,26 +171,6 @@ ChalkData.strikethrough = GenerateChalkDataFunction("STRIKETHROUGH");
 ChalkData.uppercase = GenerateChalkDataFunction("UPPERCASE");
 ChalkData.smallcaps = GenerateChalkDataFunction("SMALLCAPS");
 
-local BrickColorCount = 1032
-
-for Index = 1, BrickColorCount do
-	local BrickColor = BrickColor.new(Index);
-
-	local function Function(String)
-		local R = math.floor(BrickColor.r * 255);
-		local G = math.floor(BrickColor.g * 255);
-		local B = math.floor(BrickColor.b * 255);
-
-		local FormatStart = Formats.FONT_COLOR_RGB.Start:format(R, G, B);
-
-		return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
-	end
-
-	ChalkData[BrickColor.Name:lower()] = Function
-	ChalkData[BrickColor.Name] = Function
-	ChalkData[BrickColor] = Function
-end
-
 ChalkData.white = GenerateColorFunction(Color3.fromRGB(255, 255, 255));
 ChalkData.black = GenerateColorFunction(Color3.fromRGB(0, 0, 0));
 ChalkData.red = GenerateColorFunction(Color3.fromRGB(255, 0, 0));
