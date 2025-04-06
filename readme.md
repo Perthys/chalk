@@ -52,7 +52,7 @@ ChalkModule.Name = "Chalk";
 ChalkModule.Parent = ReplicatedStorage;
 
 local Request = HttpService:RequestAsync({
-    Url = "https://raw.githubusercontent.com/Perthys/chalk/main/src/main.lua";
+    Url = "https://raw.githubusercontent.com/Perthys/chalk/refs/heads/main/src/main.luau";
     Method = "GET";
 });
 
@@ -63,7 +63,8 @@ if Request.Success and Request.StatusCode == 200 then
 
     print("Successfully installed Chalk module. At:", ChalkModule);
 else
-    error("Failed to install Chalk module.");
+	ChalkModule:Destroy()
+	error("Failed to install Chalk module.");
 end
 ```
 
