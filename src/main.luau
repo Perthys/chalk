@@ -25,7 +25,7 @@ export type ChalkType = {
 	blue: ChalkType;
 	purple: ChalkType;
 	pink: ChalkType;
-};
+}
 
 local Formats = {
 	["FONT_COLOR_RGB"] = {
@@ -106,18 +106,6 @@ local function GenerateChalkDataFunction(Type)
 	end
 end
 
-local function GenerateColorFunction(Color)
-	return function(String)
-		local R = math.floor(Color.r * 255);
-		local G = math.floor(Color.g * 255);
-		local B = math.floor(Color.b * 255);
-
-		local FormatStart = Formats.FONT_COLOR_RGB.Start:format(R, G, B);
-
-		return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
-	end
-end
-
 local function ValidateHex(String)
 	if typeof(String) ~= "string" then return end
 
@@ -133,7 +121,8 @@ local CustomHandler = {
 	["weight"] = GenerateCustomHandlerFunction("FONT_WEIGHT");
 	["transparency"] = GenerateCustomHandlerFunction("FONT_TRANSPARENCY");
 	["stroke"] = function(Data)
-		local Color = Data.Color or "#FFFFFF";
+		local Color: Color3 = Data.Color 
+		Color = `#{Color:ToHex()}`
 		local Joins = Data.Joins or "Round";
 		local Thickness = Data.Thickness or 1;
 		local transparency = Data.Transparency or 0;
@@ -156,32 +145,13 @@ local CustomHandler = {
 			Color3.fromRGB(FirstArg, Args[2], Args[3]);
 
 		local FormatStart = (IsHex and Formats.FONT_COLOR_HEX.Start:format(FirstArg:gsub("#", ""))) or
-		Formats.FONT_COLOR_RGB.Start:format(math.floor(Color.R * 255), math.floor(Color.G * 255), math.floor(Color.B * 255));
+			Formats.FONT_COLOR_RGB.Start:format(math.floor(Color.R * 255), math.floor(Color.G * 255), math.floor(Color.B * 255));
 
 		return function(String)
 			return `{FormatStart}{String}{Formats.FONT_COLOR_RGB.End}`
 		end
 	end;
 }
-
-ChalkData.bold = GenerateChalkDataFunction("BOLD");
-ChalkData.italic = GenerateChalkDataFunction("ITALIC");
-ChalkData.underline = GenerateChalkDataFunction("UNDERLINE");
-ChalkData.strikethrough = GenerateChalkDataFunction("STRIKETHROUGH");
-ChalkData.uppercase = GenerateChalkDataFunction("UPPERCASE");
-ChalkData.smallcaps = GenerateChalkDataFunction("SMALLCAPS");
-
-ChalkData.white = GenerateColorFunction(Color3.fromRGB(255, 255, 255));
-ChalkData.black = GenerateColorFunction(Color3.fromRGB(0, 0, 0));
-ChalkData.red = GenerateColorFunction(Color3.fromRGB(255, 0, 0));
-ChalkData.brown = GenerateColorFunction(Color3.fromRGB(153, 51, 0));
-ChalkData.orange = GenerateColorFunction(Color3.fromRGB(255, 153, 0));
-ChalkData.yellow = GenerateColorFunction(Color3.fromRGB(255, 255, 0));
-ChalkData.lime = GenerateColorFunction(Color3.fromRGB(153, 255, 0));
-ChalkData.green = GenerateColorFunction(Color3.fromRGB(0, 255, 0));
-ChalkData.blue = GenerateColorFunction(Color3.fromRGB(0, 0, 255));
-ChalkData.purple = GenerateColorFunction(Color3.fromRGB(102, 0, 153));
-ChalkData.pink = GenerateColorFunction(Color3.fromRGB(255, 0, 255));
 
 function ChalkObject.new(FirstObject)
 	local self = {};
@@ -243,7 +213,7 @@ function ChalkObject.new(FirstObject)
 	return TrueSelf
 end
 
-local Chalk = setmetatable({}, {
+local Chalk: ChalkType = setmetatable({}, {
 	__index = function(_, Index)
 		return ChalkObject.new(Index);
 	end;
@@ -251,6 +221,25 @@ local Chalk = setmetatable({}, {
 		return error "Chalk is READONLY";
 	end
 }); 
+
+ChalkData.white = Chalk.color(Color3.fromRGB(255, 255, 255));
+ChalkData.black = Chalk.color(Color3.fromRGB(0, 0, 0));
+ChalkData.red = Chalk.color(Color3.fromRGB(255, 0, 0));
+ChalkData.brown = Chalk.color(Color3.fromRGB(153, 51, 0));
+ChalkData.orange = Chalk.color(Color3.fromRGB(255, 153, 0));
+ChalkData.yellow = Chalk.color(Color3.fromRGB(255, 255, 0));
+ChalkData.lime = Chalk.color(Color3.fromRGB(153, 255, 0));
+ChalkData.green = Chalk.color(Color3.fromRGB(0, 255, 0));
+ChalkData.blue = Chalk.color(Color3.fromRGB(0, 0, 255));
+ChalkData.purple = Chalk.color(Color3.fromRGB(102, 0, 153));
+ChalkData.pink = Chalk.color(Color3.fromRGB(255, 0, 255));
+
+ChalkData.bold = GenerateChalkDataFunction("BOLD");
+ChalkData.italic = GenerateChalkDataFunction("ITALIC");
+ChalkData.underline = GenerateChalkDataFunction("UNDERLINE");
+ChalkData.strikethrough = GenerateChalkDataFunction("STRIKETHROUGH");
+ChalkData.uppercase = GenerateChalkDataFunction("UPPERCASE");
+ChalkData.smallcaps = GenerateChalkDataFunction("SMALLCAPS");
 
 return Chalk :: ChalkType;
 
@@ -283,5 +272,4 @@ return Chalk :: ChalkType;
 -- Chalk.blue - Set the color to blue
 -- Chalk.purple - Set the color to purple
 -- Chalk.pink - Set the color to pink
-
 
