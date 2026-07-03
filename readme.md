@@ -52,7 +52,7 @@ ChalkModule.Name = "Chalk";
 ChalkModule.Parent = ReplicatedStorage;
 
 local Request = HttpService:RequestAsync({
-    Url = "https://raw.githubusercontent.com/Perthys/chalk/refs/heads/main/src/main.luau";
+    Url = "https://raw.githubusercontent.com/Perthys/chalk/refs/heads/main/src/init.luau";
     Method = "GET";
 });
 
@@ -71,7 +71,7 @@ end
 **Wally**
 ```toml
 [dependencies]
-chalk = "perthys/chalk@1.0.3"
+chalk = "perthys/chalk@1.1.0"
 ```
 
 ## Usage
@@ -199,10 +199,11 @@ This simply means that `chalk.red.yellow.green` is equivalent to `chalk.red`.
 - `Chalk.color(Hex) | Chalk.color(R, G, B) | Chalk.color(Color3.new())` - Set the color
 - `Chalk.size([<Size>])` - Set the size of the text (Number)
 - `Chalk.face([<Face>])` - Set the typeface of the text (String)
-- `Chalk.family([<rbxasset://>])` - Set the font family from an asset (String)
+- `Chalk.family([<Family>])` - Set the font family by name, e.g. `Chalk.family("Michroma")` auto-wraps to `rbxasset://fonts/families/Michroma.json`; full `rbxasset://` / `rbxassetid://` paths pass through unchanged
 - `Chalk.weight([<Weight>])` - Set the font weight (String)
 - `Chalk.transparency([<Transparency>])` - Set the transparency of the text (Number 0-1)
-- `Chalk.stroke({Color = [<Color>], Joins = [<Joins>], Thickness = [<Thickness>], Transparency = [<Transparency>]})` - Define stroke properties: color (Color3), joins (String), thickness (Number), and transparency (Number)
+- `Chalk.stroke({Color = [<Color>], Joins = [<Joins>], Thickness = [<Thickness>], Transparency = [<Transparency>], Sizing = [<Sizing>]})` - Define stroke properties: color (Color3 or hex string), joins ("round" | "bevel" | "miter"), thickness (Number), transparency (Number), and sizing ("fixed" | "scaled")
+- `Chalk.mark({Color = [<Color>], Transparency = [<Transparency>]})` - Highlight the text with a background color using the richtext [`mark`](https://create.roblox.com/docs/ui/rich-text) tag: color (Color3 or hex string), transparency (Number 0-1), e.g. `Chalk.mark({Color = "#FFFF00", Transparency = 0.5})`
 
 ```lua
 Chalk.stroke({
@@ -219,7 +220,6 @@ Chalk.stroke({
 
 ### Colors
 
-- `Chalk[<BrickColorName>]` - Set the color to a BrickColor [`Colors`](https://create.roblox.com/docs/reference/engine/datatypes/BrickColor#r)
 - `Chalk.white` - Set the color to white
 - `Chalk.black` - Set the color to black
 - `Chalk.red` - Set the color to red
@@ -232,23 +232,21 @@ Chalk.stroke({
 - `Chalk.purple` - Set the color to purple
 - `Chalk.pink` - Set the color to pink
   
-## Color3, 256 RGB, Hex and BrickColor support
+## Color3, 256 RGB and Hex support
 
-Chalk supports Color3, 256 RGB, Hex and BrickColor.
+Chalk supports Color3, 256 RGB and Hex.
 
 Examples:
 
 - `Chalk.color('#DEADED').underline('Hello, world!')`
 - `Chalk.color(15, 100, 204)`
 - `Chalk.color(Color3.fromRGB(100, 255, 255))`
-- `Chalk.nougat`
 
 The following color models can be used:
 
 - [`rgb`](https://en.wikipedia.org/wiki/RGB_color_model) - Example: `chalk.color(255, 136, 0).bold('Orange!')`
 - [`hex`](https://en.wikipedia.org/wiki/Web_colors#Hex_triplet) - Example: `chalk.color('#FF8800').bold('Orange!')`
 - [`Color3`](https://create.roblox.com/docs/reference/engine/datatypes/Color3) - Example: `chalk.color(Color3.fromRGB(255, 136, 0)).bold("Orange")`
-- [`BrickColor`](https://create.roblox.com/docs/reference/engine/datatypes/BrickColor) - Example `chalk["Earth orange"]`
 
 
 ## Origin story
@@ -256,7 +254,7 @@ I wanted to make the [`npm package`](https://www.npmjs.com/package/chalk) [`chal
 
 ## Comments
 - ROBLOX PLEASE ENABLE RICH TEXT TO CONSOLE TEXT OBJECTS, you can make a interface with LogService so print/warn/error can still output raw text.
-- If roblox adds support for background text color directly with richtext I will also add support.
+- Background text color is supported through the richtext `mark` tag - see `Chalk.mark`.
 - If you have any issues or suggestions best way to contact me would be through discord `Perthys#0`.
 
 ## Maintainers

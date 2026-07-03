@@ -1,1 +1,3 @@
 *.lock
+sourcemap.json
+.vscode/
